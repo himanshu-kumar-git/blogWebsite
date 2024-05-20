@@ -31,7 +31,7 @@ const Signup = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-200 ">
         <form
           action=""
-          className="w-1/4 bg-gray-100 shadow-2xl rounded-lg p-6 "
+          className=" w-full sm:w-1/4 bg-gray-100 shadow-2xl rounded-lg p-6 "
           onSubmit={submitHandler}
         >
           <div className="w-full text-2xl text-center font-sans font-bold text-blue-900">
