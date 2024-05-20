@@ -17,6 +17,9 @@ const Signup = () => {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("User created successfully");
+        setName("");
+        setPassword("");
+        setEmail("");
       } catch (error) {
         console.log(error.message);
       }
