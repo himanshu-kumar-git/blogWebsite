@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Blog from "./pages/blog/Blog";
 import AllBlogs from "./pages/allBlogs/AllBlogs";
@@ -27,22 +22,8 @@ function App() {
           <Route path="/bloginfo/:id" element={<BlogInfo />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRouteForAdmin>
-                <Dashboard />
-              </ProtectedRouteForAdmin>
-            }
-          />
-          <Route
-            path="/createblog"
-            element={
-              <ProtectedRouteForAdmin>
-                <CreateBlog />
-              </ProtectedRouteForAdmin>
-            }
-          />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/createblog" element={<CreateBlog />} />
           <Route path="/*" element={<NoPage />} />
         </Routes>
         <Toaster />
@@ -51,14 +32,6 @@ function App() {
   );
 }
 
-export default App
+export default App;
 
-export const ProtectedRouteForAdmin = ({ children }) => {
-  const admin = JSON.parse(localStorage.getItem('admin'))
-  if (admin?.user?.email === "testuser@gmail.com") {
-    return children
-  }
-  else {
-    return <Navigate to={'/adminlogin'}/>
-  }
-}
+
