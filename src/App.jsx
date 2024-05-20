@@ -14,6 +14,7 @@ import Dashboard from "./pages/admin/dashboard/Dashboard";
 import MyState from "./context/data/myState";
 import { Toaster } from "react-hot-toast";
 import CreateBlog from "./pages/admin/createBlog/CreateBlog";
+import Signup from "./pages/signup/Signup";
 
 function App() {
   return (
@@ -25,22 +26,29 @@ function App() {
           <Route path="/allblogs" element={<AllBlogs />} />
           <Route path="/bloginfo/:id" element={<BlogInfo />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/dashboard" element={
-            <ProtectedRouteForAdmin>
-              <Dashboard />
-            </ProtectedRouteForAdmin>
-          } />
-          <Route path="/createblog" element={
-            <ProtectedRouteForAdmin>
-              <CreateBlog />
-            </ProtectedRouteForAdmin>
-          } />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRouteForAdmin>
+                <Dashboard />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path="/createblog"
+            element={
+              <ProtectedRouteForAdmin>
+                <CreateBlog />
+              </ProtectedRouteForAdmin>
+            }
+          />
           <Route path="/*" element={<NoPage />} />
         </Routes>
-        <Toaster/>
+        <Toaster />
       </Router>
     </MyState>
-  )
+  );
 }
 
 export default App
