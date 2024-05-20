@@ -2,8 +2,10 @@ import { useState } from "react";
 import Layout from "../../components/layout/Layout";
 import { auth } from "../../firebase/FirebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,9 +19,7 @@ const Signup = () => {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("User created successfully");
-        setName("");
-        setPassword("");
-        setEmail("");
+        navigate("/adminlogin");
       } catch (error) {
         console.log(error.message);
       }
